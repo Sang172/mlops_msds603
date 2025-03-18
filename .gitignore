@@ -1,0 +1,16 @@
+.DS_Store
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+.env
+env/
+venv/
+*.pickle
+*.keras
+.dockerignore
+.gcloudignore
+service_key.json
+*.mp4
+*.pdf
