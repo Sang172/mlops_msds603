@@ -14,3 +14,4 @@ venv/
 service_key.json
 *.mp4
 *.pdf
+*.png
