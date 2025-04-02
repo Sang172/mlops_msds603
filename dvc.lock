@@ -13,8 +13,13 @@ stages:
       size: 2003132
     - path: src/create_features.py
       hash: md5
-      md5: b93aea27ba45f8b24bdd52928f1f2b99
-      size: 2564
+      md5: bedd574b5e01988856b0a59e566f92ca
+      size: 2687
+    params:
+      params.yaml:
+        features.chi2percentile: 50
+        features.test_path: data/adult.test
+        features.train_path: data/adult.data
     outs:
     - path: data/pipeline.pkl
       hash: md5

@@ -5,6 +5,10 @@ stages:
       - data/adult.data
       - data/adult.test
       - src/create_features.py
+    params: 
+      - features.chi2percentile
+      - features.train_path
+      - features.test_path
     outs:
       - data/pipeline.pkl
       - data/processed_train_data.csv
