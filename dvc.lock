@@ -1,35 +1,30 @@
 schema: '2.0'
 stages:
   prepare:
-    cmd: python src/create_features.py
+    cmd: python src/preprocessing.py
     deps:
-    - path: data/adult.data
+    - path: data/diabetes_binary.csv
       hash: md5
-      md5: 5d7c39d7b8804f071cdd1f2a7c460872
-      size: 3974305
-    - path: data/adult.test
+      md5: 8f90e44047182c5f32d10f0c4dd4890f
+      size: 22738154
+    - path: src/preprocessing.py
       hash: md5
-      md5: 366c746021dc50ad9d933d2817612fc9
-      size: 2003132
-    - path: src/create_features.py
-      hash: md5
-      md5: bedd574b5e01988856b0a59e566f92ca
-      size: 2687
-    params:
-      params.yaml:
-        features.chi2percentile: 50
-        features.test_path: data/adult.test
-        features.train_path: data/adult.data
+      md5: 771f79551028da6ad7375cdf8264ec87
+      size: 2194
     outs:
-    - path: data/pipeline.pkl
+    - path: data/diabetes_preprocessing_pipeline.pkl
       hash: md5
-      md5: 2ff2f4415c961f1b4220d6b141e5f6f1
-      size: 6072
-    - path: data/processed_test_data.csv
+      md5: 37a5e87e617142034ff36b0e6ebb0c53
+      size: 2798
+    - path: data/diabetes_test.csv
       hash: md5
-      md5: a59c8daac38fe1ca84dda2b458ee762a
-      size: 5409602
-    - path: data/processed_train_data.csv
+      md5: 157795ebdc289db8119afa16afdee7d2
+      size: 9896488
+    - path: data/diabetes_train.csv
       hash: md5
-      md5: adf63b6ce20f7ee74f63d5dabb325226
-      size: 10829967
+      md5: 939fab22bd4b70a2e42e97d689a978d2
+      size: 27499739
+    - path: data/diabetes_val.csv
+      hash: md5
+      md5: ce38c0c92e5449547d5d702812dd9fc4
+      size: 9893550

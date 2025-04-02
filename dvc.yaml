@@ -1,15 +1,11 @@
 stages:
   prepare:
-    cmd: python src/create_features.py
+    cmd: python src/preprocessing.py
     deps:
-      - data/adult.data
-      - data/adult.test
-      - src/create_features.py
-    params: 
-      - features.chi2percentile
-      - features.train_path
-      - features.test_path
+      - data/diabetes_binary.csv
+      - src/preprocessing.py
     outs:
-      - data/pipeline.pkl
-      - data/processed_train_data.csv
-      - data/processed_test_data.csv
+      - data/diabetes_preprocessing_pipeline.pkl
+      - data/diabetes_train.csv
+      - data/diabetes_val.csv
+      - data/diabetes_test.csv
