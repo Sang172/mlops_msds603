@@ -57,10 +57,9 @@ class ScoringFlow(FlowSpec):
         with mlflow.start_run(run_name="run_best_model") as trial_run:
             loaded_model = mlflow.pyfunc.load_model(model_uri)
             y_pred = loaded_model.predict(X_test)
-            y_pred_path = self.gcs_bucket + 'y_pred.pkl'
-            with open(y_pred_path, 'wb') as f:
-                pickle.dump(y_pred, f)
-            print(f"Predictions saved to {y_pred_path}")
+            y_pred = pd.DataFrame(y_pred)
+            y_pred.to_pickle(self.gcs_bucket + 'y_pred.pkl')
+            print(f"Predictions saved to GCS bucket")
             acc = accuracy_score(y_test, y_pred)
             mlflow.log_metric("validation_binary_cross_entropy_loss", best_model_val_loss)
             mlflow.log_metric("test_set_accuracy", acc)
