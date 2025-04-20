@@ -57,7 +57,7 @@ class ScoringFlow(FlowSpec):
         with mlflow.start_run(run_name="run_best_model") as trial_run:
             loaded_model = mlflow.pyfunc.load_model(model_uri)
             y_pred = loaded_model.predict(X_test)
-            y_pred_path = 'data/y_pred.pkl'
+            y_pred_path = self.gcs_bucket + 'y_pred.pkl'
             with open(y_pred_path, 'wb') as f:
                 pickle.dump(y_pred, f)
             print(f"Predictions saved to {y_pred_path}")

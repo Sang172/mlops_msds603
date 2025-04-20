@@ -55,8 +55,6 @@ class TrainingFlow(FlowSpec):
         X_trainval, X_test, y_trainval, y_test = train_test_split(X, y, test_size=0.2, shuffle=True, random_state=self.seed)
         X_train, X_val, y_train, y_val = train_test_split(X_trainval, y_trainval, test_size=0.25, shuffle=True, random_state=self.seed)
 
-
-
         numerical = ['BMI','MentHlth','PhysHlth']
         one_hot = ['GenHlth','Age','Education','Income']
 
