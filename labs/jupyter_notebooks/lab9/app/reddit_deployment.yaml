@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reddit-classifier-deployment
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: reddit-classifier 
+  template:
+    metadata:
+      labels:
+        app: reddit-classifier 
+    spec:
+      containers:
+      - name: reddit-classifier-app 
+        image: us-west1-docker.pkg.dev/msds603-lab7-project/reddit-app-repo/reddit-classifier-app:latest #image: reddit-classifier-app:latest
+        # imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000 
+        resources: 
+          requests: 
+            memory: "64Mi" 
+            cpu: "100m"    
+          limits: 
+            memory: "128Mi" 
+            cpu: "200m"  
